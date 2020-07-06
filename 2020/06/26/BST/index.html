@@ -17,20 +17,26 @@
   <!-- PACE Progress Bar START -->
 
   
-  <title>Tags | Hexo</title>
+  <title>sortedmap | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
+  <meta name="keywords" content="HashTableSortedMap" />
   
   
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+  
+  <meta name="description" content="BST 有序表经典BST中无重复值 1.BST的增删查增和查操作相似 删除:  无left无right, 直接删  有left无right 或 有right无left(情况相同, 子树替他的位置),  有left有right, 找后继节点替他的位置(右树的最左节点), 后继节点如果有right child, 把right child交给后继节点的parent;  用后继节点接替时要考虑后继节点是要">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SortedMap">
+<meta property="og:url" content="http://yoursite.com/2020/06/26/BST/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="BST 有序表经典BST中无重复值 1.BST的增删查增和查操作相似 删除:  无left无right, 直接删  有left无right 或 有right无left(情况相同, 子树替他的位置),  有left有right, 找后继节点替他的位置(右树的最左节点), 后继节点如果有right child, 把right child交给后继节点的parent;  用后继节点接替时要考虑后继节点是要">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-07-05T22:10:34.000Z">
-<meta property="article:modified_time" content="2020-07-05T22:16:24.265Z">
+<meta property="article:published_time" content="2020-06-26T08:33:15.000Z">
+<meta property="article:modified_time" content="2020-07-06T07:36:20.595Z">
 <meta property="article:author" content="Andy Liu">
+<meta property="article:tag" content="HashTable">
+<meta property="article:tag" content="SortedMap">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -97,7 +103,7 @@ var themeMenus = {};
 </script>
 
 
-  <body>
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
 
 
   <header id="allheader" class="site-header" role="banner">
@@ -173,7 +179,7 @@ var themeMenus = {};
             
       <div id="content" class="outer">
         
-          <section id="main"><article id="page-"  class="article article-type-page" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-BST" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
     
@@ -181,7 +187,7 @@ var themeMenus = {};
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      tags
+      SortedMap
     </h1>
   
 
@@ -189,8 +195,8 @@ var themeMenus = {};
     
     <div class="article-meta">
       
-	Posted on <a href="/tags/index.html" class="article-date">
-	  <time datetime="2020-07-05T22:10:34.000Z" itemprop="datePublished">July 5, 2020</time>
+	Posted on <a href="/2020/06/26/BST/" class="article-date">
+	  <time datetime="2020-06-26T08:33:15.000Z" itemprop="datePublished">June 26, 2020</time>
 	</a>
 
       
@@ -201,12 +207,36 @@ var themeMenus = {};
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="BST-有序表"><a href="#BST-有序表" class="headerlink" title="BST 有序表"></a>BST 有序表</h1><p>经典BST中无重复值</p>
+<h3 id="1-BST的增删查"><a href="#1-BST的增删查" class="headerlink" title="1.BST的增删查"></a>1.BST的增删查</h3><p>增和查操作相似</p>
+<p>删除:</p>
+<ol>
+<li><p>无left无right, 直接删</p>
+</li>
+<li><p>有left无right 或 有right无left(情况相同, 子树替他的位置),</p>
+</li>
+<li><p>有left有right, 找后继节点替他的位置(右树的最左节点), 后继节点如果有right child, 把right child交给后继节点的parent; </p>
+<p>用后继节点接替时要考虑后继节点是要删除节点的right child, 这种情况下, 后继节点无需交出自己的right child</p>
+</li>
+</ol>
+<hr>
+<h3 id="裸的BST存在的问题"><a href="#裸的BST存在的问题" class="headerlink" title="裸的BST存在的问题:"></a>裸的BST存在的问题:</h3><p>输入数据状况决定性能: 数据问题导致树的不平衡, 复杂度无法保持在O(logN)</p>
+<p>BST引入左旋和右旋构成平衡BST, 具备自平衡能力, 维持平衡的代价不超过O(logN)</p>
+<hr>
+<h3 id="常见平衡BST-self-balancing-binary-search-tree"><a href="#常见平衡BST-self-balancing-binary-search-tree" class="headerlink" title="常见平衡BST(self-balancing binary search tree)"></a>常见平衡BST(self-balancing binary search tree)</h3><h4 id="AVL-Adelson-Velskii-and-Landis"><a href="#AVL-Adelson-Velskii-and-Landis" class="headerlink" title="AVL(Adelson-Velskii and Landis)"></a>AVL(Adelson-Velskii and Landis)</h4><p>任何节点, 左右树高度差 &lt; 2</p>
+<h4 id="Size-Balanced-Tree"><a href="#Size-Balanced-Tree" class="headerlink" title="Size-Balanced Tree"></a>Size-Balanced Tree</h4><p>叔节点的个数不少于侄子节点的个数</p>
+<h4 id="Red-Black-Tree"><a href="#Red-Black-Tree" class="headerlink" title="Red Black Tree"></a>Red Black Tree</h4>
       
     </div>
     <footer class="entry-meta entry-footer">
       
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Data-Structure/">Data Structure</a>
+
       
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HashTable/" rel="tag">HashTable</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SortedMap/" rel="tag">SortedMap</a></li></ul>
+
       
         <div id="donation_div"></div>
 
@@ -253,211 +283,30 @@ var a = new Donate({
   </div>
   
     
+<nav id="article-nav">
+  
+  
+    <a href="/2020/06/25/Manacher/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Manacher</div>
+    </a>
+  
+</nav>
+
   
 </article>
 
 <!-- Table of Contents -->
 
+  <aside id="sidebar">
+    <div id="toc" class="toc-article" style="overflow-y: scroll; max-width: 28%;">
+    <strong class="toc-title">Contents</strong>
     
+      <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#BST-有序表"><span class="nav-number">1.</span> <span class="nav-text">BST 有序表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-BST的增删查"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.BST的增删查</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#裸的BST存在的问题"><span class="nav-number">1.0.2.</span> <span class="nav-text">裸的BST存在的问题:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见平衡BST-self-balancing-binary-search-tree"><span class="nav-number">1.0.3.</span> <span class="nav-text">常见平衡BST(self-balancing binary search tree)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#AVL-Adelson-Velskii-and-Landis"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">AVL(Adelson-Velskii and Landis)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Size-Balanced-Tree"><span class="nav-number">1.0.3.2.</span> <span class="nav-text">Size-Balanced Tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Red-Black-Tree"><span class="nav-number">1.0.3.3.</span> <span class="nav-text">Red Black Tree</span></a></li></ol></li></ol></li></ol></li></ol>
+    
+    </div>
+  </aside>
 </section>
-          <aside id="sidebar">
-  
-    <div class="widget-wrap" style="margin: 20px 0;">
-	<div id="search-form-wrap">
-
-    <form class="search-form">
-        <label style="width: 75%;">
-            <span class="screen-reader-text">Search for:</span>
-            <input type="search" class="search-field" style="height: 42px;" placeholder=" Search…" value="" name="s" title="Search for:">
-        </label>
-        <input type="submit" class="search-form-submit" value="Search">
-    </form>
-    <div class="ins-search">
-    <div class="ins-search-mask"></div>
-    <div class="ins-search-container">
-        <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
-            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
-</div>
-<script>
-(function (window) {
-    var INSIGHT_CONFIG = {
-        TRANSLATION: {
-            POSTS: 'Posts',
-            PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
-            UNTITLED: '(Untitled)',
-        },
-        ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
-    };
-    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-})(window);
-</script>
-
-<script src="/js/insight.js"></script>
-
-
-</div>
-</div>
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Connect With Us</h3>
-    <div class="widget widget_athemes_social_icons">
-
-    	<ul class="clearfix widget-social-icons">   
-    	
-          
-     			  <li><a href="https://github.com/iTimeTraveler" target="_blank" rel="noopener" title="Github"><i class="fa fa-github" aria-hidden="true"></i></a></li> 
-          
-   		
-          
-     			  <li><a href="http://www.yoursite.com" target="_blank" rel="noopener" title="Weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a></li> 
-          
-   		
-          
-     			  <li><a href="" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li> 
-          
-   		
-          
-     			  <li><a href="" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li> 
-          
-   		
-          
-     			  <li><a href="" title="Google-plus"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li> 
-          
-   		
-          
-     			  <li><a href="" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li> 
-          
-   		
-          
-     			  <li><a href="" title="Pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li> 
-          
-   		
-          
-     			  <li><a href="" title="Flickr"><i class="fa fa-flickr" aria-hidden="true"></i></a></li> 
-          
-   		
-          
-            <li><a href="mailto:?subject=请联系我&body=我能帮你什么" title="email"><i class="fa fa-envelope" aria-hidden="true"></i></a></li> 
-          
-   		
-   		</ul>
-
-
-   		<!--
-   		<ul class="clearfix widget-social-icons">   		
-   		<li class="widget-si-twitter"><a href="http://twitter.com" target="_blank" rel="noopener" title="Twitter"><i class="ico-twitter"></i></a></li> 
-		<li class="widget-si-facebook"><a href="http://facebook.com" target="_blank" rel="noopener" title="Facebook"><i class="ico-facebook"></i></a></li>
-			<li class="widget-si-gplus"><a href="http://plus.google.com" target="_blank" rel="noopener" title="Google+"><i class="ico-gplus"></i></a></li>
-			<li class="widget-si-pinterest"><a href="http://pinterest.com" target="_blank" rel="noopener" title="Pinterest"><i class="ico-pinterest"></i></a></li>
-			<li class="widget-si-flickr"><a href="http://flickr.com" target="_blank" rel="noopener" title="Flickr"><i class="ico-flickr"></i></a></li>
-			<li class="widget-si-instagram"><a href="http://instagram.com" target="_blank" rel="noopener" title="Instagram"><i class="ico-instagram"></i></a></li>
-		</ul> -->
-
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget_athemes_tabs">
-    <ul id="widget-tab" class="clearfix widget-tab-nav">
-      <li class="active"><a>Recent Posts</a></li>
-    </ul>
-    <div class="widget">
-      <ul>
-        
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2020/06/26/BST/">SortedMap</a></h6>
-              <span>June 26, 2020</span>
-            </div>
-
-          </li>
-        
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2020/06/25/Manacher/">Manacher</a></h6>
-              <span>June 25, 2020</span>
-            </div>
-
-          </li>
-        
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2020/06/18/KMP/">KMP</a></h6>
-              <span>June 18, 2020</span>
-            </div>
-
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-Structure/">Data Structure</a><span class="category-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashTable/" rel="tag">HashTable</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LPS/" rel="tag">LPS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SortedMap/" rel="tag">SortedMap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/manacher/" rel="tag">manacher</a><span class="tag-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/HashTable/" style="font-size: 10px;">HashTable</a> <a href="/tags/LPS/" style="font-size: 10px;">LPS</a> <a href="/tags/SortedMap/" style="font-size: 10px;">SortedMap</a> <a href="/tags/manacher/" style="font-size: 10px;">manacher</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">3</span></li></ul>
-    </div>
-  </div>
-
-
-  
-</aside>
         
       </div>
       <footer id="footer" class="site-footer">
